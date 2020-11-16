@@ -7,7 +7,10 @@ const router = new KoaRouter();
 router
   .post('/', async (ctx, next) => {
     try {
-      const redirect = await usecases.create(ctx.request.url, ctx.request.origin);
+      const redirect = await usecases.create(
+        ctx.request.body.url,
+        `${ctx.request.protocol}://${ctx.request.header.host}`,
+      );
 
       ctx.status = 201;
       ctx.body = {
@@ -28,7 +31,10 @@ router
   })
   .post('/bulk', async (ctx, next) => {
     try {
-      const data = await usecases.bulkCreate(ctx.request.body.urls, ctx.request.origin);
+      const data = await usecases.bulkCreate(
+        ctx.request.body.urls,
+        `${ctx.request.protocol}://${ctx.request.header.host}`,
+      );
 
       ctx.status = 201;
       ctx.body = {
@@ -49,7 +55,10 @@ router
   })
   .get('/:id([A-Za-z0-9]{6})', async (ctx, next) => {
     try {
-      const url = await usecases.get(ctx.request.params.id, ctx.request.origin);
+      const url = await usecases.get(
+        ctx.request.params.id,
+        `${ctx.request.protocol}://${ctx.request.header.host}`,
+      );
 
       ctx.redirect(url);
     } catch (error) {
