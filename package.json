@@ -1,0 +1,24 @@
+{
+  "name": "yellowme-challenge",
+  "version": "1.0.0",
+  "description": "backend service made with koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visomiDev/yellowme-challenge.git"
+  },
+  "keywords": [
+    "koa",
+    "mongoose",
+    "react"
+  ],
+  "author": "Michael Villalba Sotelo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/visomiDev/yellowme-challenge/issues"
+  },
+  "homepage": "https://github.com/visomiDev/yellowme-challenge#readme"
+}
