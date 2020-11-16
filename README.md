@@ -35,7 +35,7 @@ if you wan to test in the deployed env you need to set this var:
 export YELLOWME_VISOMI_CHALLENGE="https://yellowme-challenge.visomi.dev"
 ```
 
-For thest the create redirect endpoint you can run this command:
+For test the create redirect endpoint you can run this command:
 
 ```bash
 curl --location --request POST "$YELLOWME_VISOMI_CHALLENGE" \
@@ -46,3 +46,15 @@ curl --location --request POST "$YELLOWME_VISOMI_CHALLENGE" \
 ```
 
 For test your new redirect, copy and paste the result of the previous command in you web browser
+
+For test the bulk create redirect endpoint you can run this command:
+
+```bash
+curl --location --request POST "$YELLOWME_VISOMI_CHALLENGE" \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "urls": ["https://google.com", "https://youtube.com"]
+  }'
+```
+
+And you can test each URL
