@@ -2,16 +2,6 @@ const colors = require('colors');
 
 const logger = require('../lib/logger');
 
-function filterBody(body) {
-  const newBody = typeof body === 'string' ? JSON.parse(body) : body;
-  const bodyToClean = { ...newBody };
-
-  if (bodyToClean.password) bodyToClean.password = '<password>';
-  if (bodyToClean.token) bodyToClean.token = '<token>';
-
-  return JSON.stringify(bodyToClean);
-}
-
 function logRequestData(ctx) {
   const data = [
     `headers: ${JSON.stringify(ctx.request.headers)}`,
@@ -19,10 +9,6 @@ function logRequestData(ctx) {
 
   if (Object.keys(ctx.query).length > 0) {
     data.push(`query: ${JSON.stringify(ctx.query)}`);
-  }
-
-  if (!['GET', 'DELETE'].includes(ctx.method)) {
-    data.push(`body: ${filterBody(ctx.request.body)}`);
   }
 
   return data.join(', ');
@@ -47,8 +33,6 @@ function logMessageOut(ctx, duration, isError = false) {
 
   if (isError) message.push(colors.red('response:'));
   else message.push(colors.green('response:'));
-
-  message.push(filterBody(ctx.body));
 
   return message.join(' ');
 }
