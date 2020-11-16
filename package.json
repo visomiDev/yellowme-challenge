@@ -4,6 +4,7 @@
   "description": "backend service made with koa",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
