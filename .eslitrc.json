@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "plugins": [
+  ],
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "rules": {
+    "no-console": 2
+  }
+}
